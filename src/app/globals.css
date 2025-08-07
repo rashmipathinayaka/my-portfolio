@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-background text-foreground;
+    @apply text-white;
   }
 }
 
@@ -50,6 +50,14 @@
     animation: floating 6s ease-in-out infinite;
   }
   
+  .floating:nth-child(2) {
+    animation-delay: 2s;
+  }
+  
+  .floating:nth-child(3) {
+    animation-delay: 4s;
+  }
+  
   @keyframes floating {
     0%, 100% {
       transform: translateY(0px);
@@ -65,6 +73,24 @@
   
   .glow:hover {
     box-shadow: 0 0 30px rgba(59, 130, 246, 0.8);
+  }
+  
+  /* Enhanced animations */
+  .group:hover .group-hover\:scale-110 {
+    transform: scale(1.1);
+  }
+  
+  /* Smooth transitions for all interactive elements */
+  * {
+    transition-property: transform, opacity, background-color, border-color, color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+  
+  /* Enhanced focus states */
+  input:focus, textarea:focus {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
   }
 }
 
