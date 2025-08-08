@@ -16,6 +16,9 @@ import {
   Calendar,
   Cloud,
   Users,
+  Boxes,
+  Cpu
+  
 } from "lucide-react";
 import Image from "next/image";
 
@@ -29,7 +32,7 @@ export default function Home() {
       image:
         "https://cdn.agdaily.com/wp-content/uploads/2018/09/bg-corn_field-001-naramit.jpg",
       github: "https://github.com/rashmipathinayaka/Green-Lease",
-     
+
       // featured: false,
     },
     {
@@ -86,8 +89,6 @@ export default function Home() {
     },
   ];
 
-
-
   const educationMilestones = [
     {
       level: "Ordinary Level (O/L)",
@@ -134,8 +135,7 @@ export default function Home() {
       // year: "2023",
       duration: "Self-paced",
       icon: Code,
-      linkedinUrl:
-        "https://www.linkedin.com/in/rashmi-pathinayaka-aa950a28b",
+      linkedinUrl: "https://www.linkedin.com/in/rashmi-pathinayaka-aa950a28b",
       description:
         "Explore my linkedin account to see my HackerRank certificates.",
     },
@@ -145,8 +145,7 @@ export default function Home() {
       year: "2024",
       // duration: "40 hours",
       icon: Cloud,
-      linkedinUrl:
-        "https://www.linkedin.com/in/rashmi-pathinayaka-aa950a28b",
+      linkedinUrl: "https://www.linkedin.com/in/rashmi-pathinayaka-aa950a28b",
       description:
         "Comprehensive understanding of AWS cloud services and architecture",
     },
@@ -156,10 +155,30 @@ export default function Home() {
       // year: "2022",
       duration: "Self-paced",
       icon: Code,
-      linkedinUrl:
-        "https://www.linkedin.com/in/rashmi-pathinayaka-aa950a28b",
+      linkedinUrl: "https://www.linkedin.com/in/rashmi-pathinayaka-aa950a28b",
       description:
         "Explore my linkedin account to see my Linkedin learning certificates",
+    },
+  ];
+
+  const interests = [
+    {
+      icon: <Boxes className="w-8 h-8 text-blue-500" />,
+      title: "Docker & Containers",
+      description:
+        "Building and deploying applications in isolated, scalable environments.",
+    },
+    {
+      icon: <Cloud className="w-8 h-8 text-purple-500" />,
+      title: "Cloud Computing",
+      description:
+        "Leveraging AWS, Azure, and GCP for scalable, resilient solutions.",
+    },
+    {
+      icon: <Cpu className="w-8 h-8 text-green-500" />,
+      title: "Artificial Intelligence",
+      description:
+        "Exploring AI applications in automation, data processing, and problem-solving.",
     },
   ];
 
@@ -553,6 +572,59 @@ export default function Home() {
         </div>
       </section>
 
+
+<section id="interests" className="py-20 px-6 ">
+  <div className="max-w-7xl mx-auto">
+    <motion.div
+      initial={{ y: 100, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      viewport={{ once: true }}
+      className="text-center mb-16"
+    >
+      <h2 className="text-4xl lg:text-6xl font-bold gradient-text mb-6">
+        Interests
+      </h2>
+      <p className="text-white/80 text-xl max-w-2xl mx-auto">
+        Areas of technology and innovation that drive my curiosity and inspire my work.
+      </p>
+    </motion.div>
+
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      className="grid md:grid-cols-3 gap-8 mb-16"
+    >
+      {interests.map((interest, index) => {
+        const Icon = interest.icon;
+        return (
+          <motion.div
+            key={index}
+            variants={itemVariants}
+            whileHover={{ scale: 1.05, y: -10 }}
+            className="glass rounded-3xl p-8 text-center shine-effect group"
+          >
+            <div className="inline-flex items-center justify-center w-20 h-20 glass-dark rounded-3xl mb-6 group-hover:scale-110 transition-transform duration-300">
+             
+              {interest.icon}
+              {/* <interest.icon size={36} className="text-blue-400" /> */}
+            </div>
+            <h3 className="text-2xl font-bold text-white mb-4">
+              {interest.title}
+            </h3>
+            <p className="text-white/80">{interest.description}</p>
+          </motion.div>
+        );
+      })}
+    </motion.div>
+  </div>
+</section>
+
+
+
+
+      
       <section id="education" className="py-20 px-6 ">
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -650,10 +722,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section
-        id="certificates"
-        className="py-20 px-6 "
-      >
+      <section id="certificates" className="py-20 px-6 ">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ y: 100, opacity: 0 }}
