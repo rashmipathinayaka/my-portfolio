@@ -11,7 +11,11 @@ import {
   Smartphone,
   Award,
   Download,
- 
+  BookOpen,
+  GraduationCap,
+  Calendar,
+  Cloud,
+  Users,
 } from "lucide-react";
 import Image from "next/image";
 
@@ -99,6 +103,79 @@ export default function Home() {
       description: "Optimized apps by 300%",
     },
   ];
+
+  const educationMilestones = [
+    {
+      level: "Ordinary Level (O/L)",
+      institution: "President Cllege Matara",
+      year: "2017",
+      result: "8A's 1B",
+      icon: BookOpen,
+      description:
+        "Completed with distinction in all subjects including Mathematics and Science(ENG medium), and English literature",
+    },
+    {
+      level: "Advanced Level (A/L)",
+      institution: "Mahinda Rajapaksha College Matara",
+      year: "2021",
+      result: "1A 2B",
+      icon: Award,
+      description:
+        "Specialized in Physical Science stream with excellent results in Mathematics, Physics, and Chemistry",
+    },
+    {
+      level: "Bachelor's Degree",
+      institution: "University of Colombo School of Computing",
+      year: "2023",
+      result: "GPA 3.29/4.0",
+      icon: GraduationCap,
+      description:
+        "Computer Science with focus on Software Development and DevOps Engineering",
+    },
+  ];
+
+
+const certificates = [
+  {
+    name: "Problem Solving (Intermediate)",
+    provider: "HackerRank",
+    year: "2023",
+    duration: "Self-paced",
+    icon: Code,
+    linkedinUrl: "https://www.linkedin.com/in/yourprofile/details/certifications/",
+    description: "Advanced problem-solving skills in algorithms and data structures"
+  },
+  {
+    name: "AWS Cloud Practitioner",
+    provider: "Simplilearn",
+    year: "2023",
+    duration: "40 hours",
+    icon: Cloud,
+    linkedinUrl: "https://www.linkedin.com/in/yourprofile/details/certifications/",
+    description: "Comprehensive understanding of AWS cloud services and architecture"
+  },
+  {
+    name: "JavaScript Essential Training",
+    provider: "LinkedIn Learning",
+    year: "2022",
+    duration: "5 hours",
+    icon: Code,
+    linkedinUrl: "https://www.linkedin.com/in/yourprofile/details/certifications/",
+    description: "Modern JavaScript development techniques and best practices"
+  },
+  {
+    name: "Human Resources Management Diploma",
+    provider: "Professional Institute",
+    year: "2023",
+    duration: "6 months",
+    icon: Users,
+    linkedinUrl: null, // No LinkedIn link for this one
+    description: "Comprehensive HR management principles and practices"
+  }
+];
+
+
+
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -398,8 +475,6 @@ export default function Home() {
                 </motion.div>
               ))}
           </motion.div>
-
-         
         </div>
       </section>
 
@@ -492,6 +567,113 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="education" className="py-20 px-6 ">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ y: 100, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl lg:text-6xl font-bold gradient-text mb-6">
+              Educational Journey
+            </h2>
+            <p className="text-white/80 text-xl max-w-2xl mx-auto">
+              A progressive academic path that shaped my foundation in
+              technology and problem-solving.
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="relative"
+          >
+            {/* Timeline line */}
+            <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-cyan-400 hidden lg:block"></div>
+
+            <div className="space-y-12 lg:space-y-24">
+              {educationMilestones.map((milestone, index) => (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  className={`flex flex-col lg:flex-row items-center ${
+                    index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
+                  }`}
+                >
+                  {/* Content Card */}
+                  <motion.div
+                    whileHover={{ scale: 1.05, y: -10 }}
+                    className={`w-full lg:w-5/12 ${
+                      index % 2 === 0 ? "lg:mr-8" : "lg:ml-8"
+                    }`}
+                  >
+                    <div className="glass rounded-3xl p-8 shine-effect group">
+                      <div className="flex items-center mb-6">
+                        <div className="inline-flex items-center justify-center w-16 h-16 glass-dark rounded-2xl mr-4 group-hover:scale-110 transition-transform duration-300">
+                          <milestone.icon size={28} className="text-blue-400" />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="text-2xl font-bold text-white mb-1">
+                            {milestone.level}
+                          </h3>
+                          <div className="flex items-center text-white/70">
+                            <Calendar size={16} className="mr-2" />
+                            <span>{milestone.year}</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="mb-6">
+                        <h4 className="text-xl font-semibold text-white mb-2">
+                          {milestone.institution}
+                        </h4>
+                        <p className="text-white/80 mb-4">
+                          {milestone.description}
+                        </p>
+                      </div>
+
+                      {/* Result Badge */}
+                      <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500/20 to-cyan-400/20 rounded-full border border-blue-400/30">
+                        <Award size={20} className="text-yellow-400 mr-2" />
+                        <span className="text-white font-bold text-lg">
+                          {milestone.result}
+                        </span>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Timeline Dot */}
+                  <div className="hidden lg:flex w-2/12 justify-center">
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      transition={{ duration: 0.5, delay: index * 0.2 }}
+                      className="w-6 h-6 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full border-4 border-slate-900 shadow-lg shadow-blue-500/50"
+                    ></motion.div>
+                  </div>
+
+                  {/* Spacer for alternating layout */}
+                  <div className="hidden lg:block w-5/12"></div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+
+
+
+
+
+
+
+
+
+      
       {/* Enhanced Contact Section */}
       <section id="contact" className="py-20 px-6">
         <div className="max-w-5xl mx-auto">
