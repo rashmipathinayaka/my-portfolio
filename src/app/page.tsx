@@ -29,7 +29,7 @@ export default function Home() {
       image:
         "https://cdn.agdaily.com/wp-content/uploads/2018/09/bg-corn_field-001-naramit.jpg",
       github: "https://github.com/rashmipathinayaka/Green-Lease",
-      live: "#",
+     
       // featured: false,
     },
     {
@@ -86,23 +86,7 @@ export default function Home() {
     },
   ];
 
-  const achievements = [
-    {
-      icon: Award,
-      title: "AWS Certified",
-      description: "Solutions Architect Professional",
-    },
-    {
-      icon: Code,
-      title: "Open Source",
-      description: "50+ contributions on GitHub",
-    },
-    {
-      icon: Database,
-      title: "Performance",
-      description: "Optimized apps by 300%",
-    },
-  ];
+
 
   const educationMilestones = [
     {
@@ -134,48 +118,50 @@ export default function Home() {
     },
   ];
 
-
-const certificates = [
-  {
-    name: "Problem Solving (Intermediate)",
-    provider: "HackerRank",
-    year: "2023",
-    duration: "Self-paced",
-    icon: Code,
-    linkedinUrl: "https://www.linkedin.com/in/yourprofile/details/certifications/",
-    description: "Advanced problem-solving skills in algorithms and data structures"
-  },
-  {
-    name: "AWS Cloud Practitioner",
-    provider: "Simplilearn",
-    year: "2023",
-    duration: "40 hours",
-    icon: Cloud,
-    linkedinUrl: "https://www.linkedin.com/in/yourprofile/details/certifications/",
-    description: "Comprehensive understanding of AWS cloud services and architecture"
-  },
-  {
-    name: "JavaScript Essential Training",
-    provider: "LinkedIn Learning",
-    year: "2022",
-    duration: "5 hours",
-    icon: Code,
-    linkedinUrl: "https://www.linkedin.com/in/yourprofile/details/certifications/",
-    description: "Modern JavaScript development techniques and best practices"
-  },
-  {
-    name: "Human Resources Management Diploma",
-    provider: "Professional Institute",
-    year: "2023",
-    duration: "6 months",
-    icon: Users,
-    linkedinUrl: null, // No LinkedIn link for this one
-    description: "Comprehensive HR management principles and practices"
-  }
-];
-
-
-
+  const certificates = [
+    {
+      name: "Human Resources Management Diploma",
+      provider: "LPEC Campus",
+      year: "2021-2022",
+      duration: "12 months",
+      icon: Users,
+      linkedinUrl: null, // No LinkedIn link for this one
+      description: "Comprehensive HR management principles and practices",
+    },
+    {
+      name: "HackerRank",
+      // provider: "HackerRank",
+      // year: "2023",
+      duration: "Self-paced",
+      icon: Code,
+      linkedinUrl:
+        "https://www.linkedin.com/in/rashmi-pathinayaka-aa950a28b",
+      description:
+        "Explore my linkedin account to see my HackerRank certificates.",
+    },
+    {
+      name: "AWS Educate Introduction to Cloud 101",
+      provider: "AWS",
+      year: "2024",
+      // duration: "40 hours",
+      icon: Cloud,
+      linkedinUrl:
+        "https://www.linkedin.com/in/rashmi-pathinayaka-aa950a28b",
+      description:
+        "Comprehensive understanding of AWS cloud services and architecture",
+    },
+    {
+      name: "Linkedin Learning",
+      // provider: "LinkedIn Learning",
+      // year: "2022",
+      duration: "Self-paced",
+      icon: Code,
+      linkedinUrl:
+        "https://www.linkedin.com/in/rashmi-pathinayaka-aa950a28b",
+      description:
+        "Explore my linkedin account to see my Linkedin learning certificates",
+    },
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -309,7 +295,7 @@ const certificates = [
                 transition={{ delay: 0.8 }}
                 className="flex flex-wrap gap-4"
               >
-                <motion.button
+                {/* <motion.button
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   className="glass px-8 py-4 rounded-xl text-white font-semibold shine-effect glow hover:shadow-blue-500/25 transition-all duration-300"
@@ -323,7 +309,7 @@ const certificates = [
                 >
                   <Mail size={16} className="inline mr-2" />
                   Get In Touch
-                </motion.button>
+                </motion.button> */}
               </motion.div>
             </motion.div>
 
@@ -463,13 +449,13 @@ const certificates = [
                       >
                         <Github size={20} />
                       </motion.a>
-                      <motion.a
+                      {/* <motion.a
                         href={project.live}
                         whileHover={{ scale: 1.1, rotate: -5 }}
                         className="glass-dark p-3 rounded-xl text-white/80 hover:text-white transition-colors"
                       >
                         <ExternalLink size={20} />
-                      </motion.a>
+                      </motion.a> */}
                     </div>
                   </div>
                 </motion.div>
@@ -537,7 +523,7 @@ const certificates = [
           </motion.div>
 
           {/* Achievements */}
-          <motion.div
+          {/* <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -563,7 +549,7 @@ const certificates = [
                 </p>
               </motion.div>
             ))}
-          </motion.div>
+          </motion.div> */}
         </div>
       </section>
 
@@ -664,16 +650,67 @@ const certificates = [
         </div>
       </section>
 
+      <section
+        id="certificates"
+        className="py-20 px-6 "
+      >
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ y: 100, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl lg:text-6xl font-bold gradient-text mb-6">
+              Certifications &amp; Achievements
+            </h2>
+            <p className="text-white/80 text-xl max-w-2xl mx-auto">
+              Professional certifications and continuous learning achievements
+              that validate my expertise across various domains.
+            </p>
+          </motion.div>
 
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 mb-16"
+          >
+            {certificates.map((cert, index) => (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                whileHover={{ scale: 1.03, y: -5 }}
+                className="glass rounded-3xl p-8 shine-effect group relative overflow-hidden"
+              >
+                <div className="flex flex-col items-center text-center">
+                  <cert.icon className="w-16 h-16 mb-4 text-indigo-400" />
+                  <h3 className="text-2xl font-semibold mb-1">{cert.name}</h3>
+                  <p className="text-white/60 text-sm mb-1">
+                    {cert.provider} &bull; {cert.year}
+                  </p>
+                  <p className="text-white/50 text-xs mb-3">{cert.duration}</p>
+                  <p className="text-white/70 text-sm mb-4">
+                    {cert.description}
+                  </p>
+                  {cert.linkedinUrl && (
+                    <a
+                      href={cert.linkedinUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-indigo-400 hover:underline text-sm"
+                    >
+                      View on LinkedIn
+                    </a>
+                  )}
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
 
-
-
-
-
-
-
-
-      
       {/* Enhanced Contact Section */}
       <section id="contact" className="py-20 px-6">
         <div className="max-w-5xl mx-auto">
