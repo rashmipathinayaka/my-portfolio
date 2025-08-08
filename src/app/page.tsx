@@ -25,9 +25,9 @@ export default function Home() {
       tech: ["PHP", "mysql", "HTML", "CSS", "JavaScript"],
       image:
         "https://cdn.agdaily.com/wp-content/uploads/2018/09/bg-corn_field-001-naramit.jpg",
-      github: "#",
+      github: "https://github.com/rashmipathinayaka/Green-Lease",
       live: "#",
-      featured: true,
+      // featured: false,
     },
     {
       title: "Chalkboard",
@@ -36,9 +36,9 @@ export default function Home() {
       tech: ["React", "MongoDb", "Tailwind"],
       image:
         "https://img.freepik.com/premium-photo/chalkboard-with-chalkboard-books_81048-20102.jpg",
-      github: "#",
+      github: "https://github.com/DilshaniNK/Simple-Student-Management-System",
       live: "#",
-      featured: true,
+      // featured: false,
     },
     {
       title: "LittleSteps",
@@ -46,19 +46,19 @@ export default function Home() {
         "LittleSteps is a daycare management app that helps parents and caregivers stay connected through real-time updates, activity tracking, and secure communication.",
       tech: ["React", "React Native", "firebase", "PostgreSql", "Tailwind"],
       image: "/images/R.jpeg",
-      github: "#",
+      github: "https://github.com/LittleSteps2025",
       live: "#",
-      featured: false,
+      // featured: false,
     },
     {
       title: "OfficeTalk",
       description:
         "OfficeTalk is a collaborative communication platform designed to streamline team conversations and enhance workplace productivity.",
-      tech: ["React", "Socket.io", "WebRTC", "Node.js", "MongoDB"],
+      tech: ["React Native", "Socket.io", "Node.js", "firebase"],
       image: "/images/OIP.webp",
-      github: "#",
+      github: "#https://github.com/rashmipathinayaka/OfficeTalk",
       live: "#",
-      featured: false,
+      // featured: false,
     },
   ];
 
@@ -66,13 +66,13 @@ export default function Home() {
     {
       name: "Frontend Development",
       icon: Code,
-      description: "React, Next.js, TypeScript",
+      description: "React, JavaScript, Next.js, TypeScript",
       level: 95,
     },
     {
       name: "Backend & Database",
       icon: Database,
-      description: "Node.js, Python, PostgreSQL, MongoDB",
+      description: "Node.js, PHP, firebase, MySql, PostgreSQL, MongoDB",
       level: 90,
     },
     {
@@ -164,14 +164,16 @@ export default function Home() {
                   </motion.a>
                 ))}
               </div>
-              <motion.button
+              <motion.a
+                href="/documents/cv.pdf" // Path to your resume file
+                download="Rashmi_CV.pdf" // Optional: Custom filename when downloaded
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="glass-dark px-6 py-2 rounded-xl text-white font-medium border border-white/20 hover:border-blue-400/50 transition-all duration-300"
+                className="glass-dark px-6 py-2 rounded-xl text-white font-medium border border-white/20 hover:border-blue-400/50 transition-all duration-300 inline-block"
               >
                 <Download size={16} className="inline mr-2" />
                 Resume
-              </motion.button>
+              </motion.a>
             </div>
           </div>
         </div>
@@ -338,7 +340,7 @@ export default function Home() {
             className="grid lg:grid-cols-2 gap-8 mb-12"
           >
             {projects
-              .filter((p) => p.featured)
+              // .filter((p) => p.featured)
               .map((project, index) => (
                 <motion.div
                   key={index}
@@ -355,9 +357,9 @@ export default function Home() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                     <div className="absolute top-4 right-4">
-                      <span className="glass-dark px-3 py-1 rounded-full text-sm text-yellow-400 font-medium">
+                      {/* <span className="glass-dark px-3 py-1 rounded-full text-sm text-yellow-400 font-medium">
                         Featured
-                      </span>
+                      </span> */}
                     </div>
                   </div>
                   <div className="p-8">
@@ -398,67 +400,7 @@ export default function Home() {
               ))}
           </motion.div>
 
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid md:grid-cols-2 gap-6"
-          >
-            {projects
-              .filter((p) => !p.featured)
-              .map((project, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  whileHover={{ y: -5, scale: 1.02 }}
-                  className="glass rounded-2xl overflow-hidden shine-effect group"
-                >
-                  <div className="relative h-48">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-white mb-2">
-                      {project.title}
-                    </h3>
-                    <p className="text-white/80 mb-4 text-sm">
-                      {project.description}
-                    </p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.tech.slice(0, 3).map((tech) => (
-                        <span
-                          key={tech}
-                          className="glass-dark px-3 py-1 rounded-full text-xs text-white/90"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                    <div className="flex space-x-3">
-                      <motion.a
-                        href={project.github}
-                        whileHover={{ scale: 1.1 }}
-                        className="text-white/80 hover:text-white transition-colors"
-                      >
-                        <Github size={18} />
-                      </motion.a>
-                      <motion.a
-                        href={project.live}
-                        whileHover={{ scale: 1.1 }}
-                        className="text-white/80 hover:text-white transition-colors"
-                      >
-                        <ExternalLink size={18} />
-                      </motion.a>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-          </motion.div>
+         
         </div>
       </section>
 
@@ -640,60 +582,55 @@ export default function Home() {
               </div>
 
               <div>
-               <form
-  action="https://formspree.io/f/xzzvkebl" // ← replace with your own
-  method="POST"
-  className="space-y-6"
->
-  <div className="grid md:grid-cols-2 gap-4">
-    <motion.input
-      whileFocus={{ scale: 1.02 }}
-      type="text"
-      name="name"
-      placeholder="Your Name"
-      required
-      className="glass-dark rounded-xl px-4 py-4 text-white placeholder-white/60 border border-white/20 focus:border-blue-400 focus:outline-none transition-all duration-300"
-    />
-    <motion.input
-      whileFocus={{ scale: 1.02 }}
-      type="email"
-      name="email"
-      placeholder="Your Email"
-      required
-      className="glass-dark rounded-xl px-4 py-4 text-white placeholder-white/60 border border-white/20 focus:border-blue-400 focus:outline-none transition-all duration-300"
-    />
-  </div>
-  <motion.input
-    whileFocus={{ scale: 1.02 }}
-    type="text"
-    name="subject"
-    placeholder="Reason for Contact (Job, Interview, Project...)"
-    className="w-full glass-dark rounded-xl px-4 py-4 text-white placeholder-white/60 border border-white/20 focus:border-blue-400 focus:outline-none transition-all duration-300"
-  />
-  <motion.textarea
-    whileFocus={{ scale: 1.02 }}
-    rows={5}
-    name="message"
-    placeholder="Write your message here..."
-    required
-    className="w-full glass-dark rounded-xl px-4 py-4 text-white placeholder-white/60 border border-white/20 focus:border-blue-400 focus:outline-none resize-none transition-all duration-300"
-  ></motion.textarea>
+                <form
+                  action="https://formspree.io/f/xzzvkebl" // ← replace with your own
+                  method="POST"
+                  className="space-y-6"
+                >
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <motion.input
+                      whileFocus={{ scale: 1.02 }}
+                      type="text"
+                      name="name"
+                      placeholder="Your Name"
+                      required
+                      className="glass-dark rounded-xl px-4 py-4 text-white placeholder-white/60 border border-white/20 focus:border-blue-400 focus:outline-none transition-all duration-300"
+                    />
+                    <motion.input
+                      whileFocus={{ scale: 1.02 }}
+                      type="email"
+                      name="email"
+                      placeholder="Your Email"
+                      required
+                      className="glass-dark rounded-xl px-4 py-4 text-white placeholder-white/60 border border-white/20 focus:border-blue-400 focus:outline-none transition-all duration-300"
+                    />
+                  </div>
+                  <motion.input
+                    whileFocus={{ scale: 1.02 }}
+                    type="text"
+                    name="subject"
+                    placeholder="Reason for Contact (Job, Interview, Project...)"
+                    className="w-full glass-dark rounded-xl px-4 py-4 text-white placeholder-white/60 border border-white/20 focus:border-blue-400 focus:outline-none transition-all duration-300"
+                  />
+                  <motion.textarea
+                    whileFocus={{ scale: 1.02 }}
+                    rows={5}
+                    name="message"
+                    placeholder="Write your message here..."
+                    required
+                    className="w-full glass-dark rounded-xl px-4 py-4 text-white placeholder-white/60 border border-white/20 focus:border-blue-400 focus:outline-none resize-none transition-all duration-300"
+                  ></motion.textarea>
 
-  <motion.button
-    whileHover={{ scale: 1.05, y: -2 }}
-    whileTap={{ scale: 0.95 }}
-    type="submit"
-    className="w-full glass px-6 py-4 rounded-xl text-white font-semibold shine-effect glow hover:shadow-blue-500/25 transition-all duration-300"
-  >
-    Send Message
-  </motion.button>
-</form>
-
+                  <motion.button
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    type="submit"
+                    className="w-full glass px-6 py-4 rounded-xl text-white font-semibold shine-effect glow hover:shadow-blue-500/25 transition-all duration-300"
+                  >
+                    Send Message
+                  </motion.button>
+                </form>
               </div>
-
-
-
-
             </div>
           </motion.div>
         </div>
